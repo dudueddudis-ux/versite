@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aline Amoroso · Estética Avançada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ouro:#b8893d;
+    --ouro-luz:#d8b677;
+    --champ:#ece3d4;
+    --areia:#f3ecdf;
+    --offwhite:#faf7f1;
+    --carvao:#1c1916;
+    --texto:#2b2722;
+    --texto-suave:#6f655a;
+    --linha:rgba(28,25,22,.12);
+    --linha-clara:rgba(250,247,241,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--offwhite);color:var(--texto);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;color:var(--ouro)}
+  .gold-rule{width:56px;height:1px;background:var(--ouro);display:inline-block;vertical-align:middle}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:24px 48px;transition:all .45s ease}
+  nav .brand,nav .nav-links a,nav .monogram{transition:color .45s ease,border-color .45s ease}
+  nav.light .brand,nav.light .nav-links a{color:var(--offwhite)}
+  nav.light .monogram{border-color:var(--ouro-luz);color:var(--ouro-luz)}
+  nav.light .brand-name small{color:rgba(250,247,241,.6)}
+  nav.light .nav-cta{border-color:rgba(250,247,241,.6);color:var(--offwhite)}
+  nav.scrolled{background:rgba(250,247,241,.94);backdrop-filter:blur(14px);padding:14px 48px;box-shadow:0 1px 0 var(--linha)}
+  nav.scrolled .brand,nav.scrolled .nav-links a{color:var(--texto)}
+  nav.scrolled .monogram{border-color:var(--ouro);color:var(--ouro)}
+  nav.scrolled .brand-name small{color:var(--texto-suave)}
+  nav.scrolled .nav-cta{border-color:var(--carvao);color:var(--carvao)}
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--texto)}
+  .monogram{width:40px;height:40px;border:1px solid var(--ouro);border-radius:50%;display:grid;place-items:center;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--ouro)}
+  .brand-name{font-family:'Fraunces',serif;font-size:1.1rem;letter-spacing:.02em;line-height:1.05}
+  .brand-name small{display:block;font-family:'Jost';font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--texto-suave)}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--texto);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+  .nav-links a:hover{opacity:.6}
+  .nav-cta{border:1px solid var(--carvao);padding:11px 24px;border-radius:40px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+  .nav-cta:hover{background:var(--ouro)!important;border-color:var(--ouro)!important;color:#fff!important}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;color:#fff}
+  .burger span{width:26px;height:1.5px;background:currentColor;display:block}
+  nav.scrolled .burger{color:var(--carvao)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;
+    background:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=2000&q=85') center 30%/cover}
+  .hero-bg::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(105deg,rgba(28,25,22,.82) 0%,rgba(28,25,22,.5) 38%,rgba(28,25,22,.12) 62%,rgba(28,25,22,.35) 100%)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding:0 48px 86px;max-width:1280px;margin:0 auto}
+  .hero-kicker{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+  .hero-kicker span{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(250,247,241,.82)}
+  .hero h1{color:var(--offwhite);font-size:clamp(3.2rem,9vw,8rem);line-height:.92;letter-spacing:-.015em;font-weight:300;max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--ouro-luz);font-weight:400}
+  .hero-sub{color:rgba(250,247,241,.86);font-size:1.12rem;font-weight:300;max-width:46ch;margin:30px 0 38px}
+  .hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn-primary{background:var(--offwhite);color:var(--carvao);text-decoration:none;padding:17px 34px;border-radius:44px;
+    font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;transition:all .4s ease;display:inline-flex;align-items:center;gap:10px}
+  .btn-primary:hover{background:var(--ouro);color:#fff;transform:translateY(-2px)}
+  .btn-line{color:var(--offwhite);text-decoration:none;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid rgba(250,247,241,.5);padding:16px 30px;border-radius:44px;transition:all .4s}
+  .btn-line:hover{background:rgba(250,247,241,.12);border-color:var(--offwhite)}
+  .hero-scroll{position:absolute;right:48px;bottom:86px;z-index:2;writing-mode:vertical-rl;
+    font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,247,241,.6);font-style:italic;font-family:'Fraunces',serif}
+
+  /* PROMESSA */
+  .promessa{padding:130px 0 120px;text-align:center}
+  .promessa .wrap{max-width:1000px}
+  .promessa h2{font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.12;color:var(--carvao);font-weight:300;margin:28px auto 0}
+  .promessa h2 em{font-style:italic;color:var(--ouro)}
+  .promessa .lead{font-size:1.1rem;color:var(--texto-suave);max-width:60ch;margin:34px auto 0;font-weight:300}
+
+  /* METODO */
+  .metodo{background:var(--carvao);color:var(--offwhite);padding:130px 0;position:relative;overflow:hidden}
+  .metodo::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,137,61,.16),transparent 70%);top:-160px;right:-120px}
+  .metodo .wrap{position:relative;z-index:2}
+  .metodo .sec-head{max-width:620px;margin-bottom:74px}
+  .metodo .eyebrow{color:var(--ouro-luz)}
+  .metodo h2{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.1;margin-top:20px;font-weight:300}
+  .metodo h2 em{font-style:italic;color:var(--ouro-luz)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .step{padding:40px 34px 44px;border-top:1px solid var(--linha-clara)}
+  .step .n{font-family:'Fraunces',serif;font-style:italic;font-size:3.4rem;color:var(--ouro-luz);line-height:1;opacity:.85}
+  .step h3{font-size:1.5rem;margin:16px 0 12px;font-weight:400;color:#fff}
+  .step p{color:rgba(250,247,241,.66);font-weight:300;font-size:.96rem}
+
+  /* FRENTES */
+  .frentes{padding:130px 0}
+  .sec-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:60px;flex-wrap:wrap}
+  .sec-head-row h2{font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.04;color:var(--carvao);max-width:15ch;font-weight:300}
+  .sec-head-row h2 em{font-style:italic;color:var(--ouro)}
+  .sec-head-row p{max-width:32ch;color:var(--texto-suave);font-weight:300}
+  .grid-frentes{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .card{position:relative;border-radius:8px;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;
+    text-decoration:none;color:var(--offwhite);box-shadow:0 18px 50px -26px rgba(28,25,22,.55)}
+  .card.big{grid-column:span 7}.card.sm{grid-column:span 5}
+  .card .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .ph{transform:scale(1.06)}
+  .card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,25,22,0) 32%,rgba(28,25,22,.85) 100%)}
+  .card .body{position:relative;z-index:2;padding:36px}
+  .card .num{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--ouro-luz)}
+  .card h3{font-size:1.85rem;margin:8px 0 10px;color:#fff;font-weight:400}
+  .card .desc{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:300;max-width:40ch}
+  .card .tags{margin-top:16px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ouro-luz)}
+  .card .arrow{position:absolute;top:32px;right:32px;z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);
+    border-radius:50%;display:grid;place-items:center;font-size:1.05rem;transition:all .4s}
+  .card:hover .arrow{background:var(--ouro);border-color:var(--ouro)}
+
+  /* CARRO-CHEFE */
+  .feature{background:var(--areia);overflow:hidden}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .feature-img{min-height:600px;background:url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1100&q=85') center/cover}
+  .feature-copy{padding:100px clamp(40px,6vw,96px) 100px 64px;display:flex;flex-direction:column;justify-content:center}
+  .feature-copy h2{font-size:clamp(2.1rem,3.8vw,3.1rem);line-height:1.05;color:var(--carvao);font-weight:300;margin-top:22px}
+  .feature-copy h2 em{font-style:italic;color:var(--ouro)}
+  .feature-list{list-style:none;margin:30px 0;display:flex;flex-direction:column;gap:15px}
+  .feature-list li{display:flex;align-items:center;gap:14px;font-size:1rem}
+  .feature-list .dot{width:7px;height:7px;border-radius:50%;background:var(--ouro);flex:0 0 auto}
+  .price-row{display:flex;align-items:flex-end;gap:18px;margin:8px 0 34px;padding-top:30px;border-top:1px solid var(--linha)}
+  .price-row .lead{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-suave);margin-bottom:8px}
+  .price-row .val{font-family:'Fraunces',serif;font-size:3.4rem;color:var(--carvao);line-height:.85}
+  .price-row .val small{font-size:1.2rem;vertical-align:super}.price-row .cents{font-size:1.4rem}
+
+  /* VALORES */
+  .valores{padding:130px 0}
+  .acc{max-width:900px;margin:50px auto 0;border-top:1px solid var(--linha)}
+  .acc-item{border-bottom:1px solid var(--linha)}
+  .acc-head{width:100%;background:none;border:0;cursor:pointer;text-align:left;padding:28px 8px;display:flex;align-items:center;
+    justify-content:space-between;gap:20px;font-family:inherit}
+  .acc-head .t{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--carvao)}
+  .acc-head .ic{font-size:1.5rem;color:var(--ouro);transition:transform .4s;line-height:1}
+  .acc-item.open .ic{transform:rotate(45deg)}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.4,0,.2,1)}
+  .acc-body-inner{padding:0 8px 32px}
+  .price-line{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px dotted var(--linha)}
+  .price-line:last-child{border-bottom:0}
+  .price-line .name{font-size:.96rem}.price-line .p{font-weight:500;color:var(--ouro);font-size:.96rem;white-space:nowrap}
+  .price-line .p.consult{color:var(--texto-suave);font-weight:400;font-style:italic;font-family:'Fraunces',serif}
+  .valores-note{text-align:center;margin-top:36px;color:var(--texto-suave);font-size:.86rem}
+
+  /* PROVA */
+  .prova{background:var(--champ);padding:110px 0}
+  .prova-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .prova-grid .n{font-family:'Fraunces',serif;font-size:3.1rem;color:var(--ouro);line-height:1;font-weight:300}
+  .prova-grid .l{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-suave);margin-top:12px}
+
+  /* LOCALIDADE */
+  .local{background:var(--carvao);color:var(--offwhite)}
+  .local-grid{display:grid;grid-template-columns:1fr 1fr}
+  .local-copy{padding:120px clamp(40px,6vw,90px)}
+  .local-copy .eyebrow{color:var(--ouro-luz)}
+  .local-copy h2{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.06;margin:20px 0 26px;font-weight:300}
+  .local-copy h2 em{font-style:italic;color:var(--ouro-luz)}
+  .local-info{list-style:none;display:flex;flex-direction:column;gap:24px;margin-top:34px}
+  .local-info li{display:flex;gap:16px;align-items:flex-start}
+  .local-info .ic{width:40px;height:40px;border:1px solid var(--linha-clara);border-radius:50%;display:grid;place-items:center;
+    color:var(--ouro-luz);flex:0 0 auto;font-size:1rem}
+  .local-info .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro-luz);margin-bottom:3px}
+  .local-info .v{color:rgba(250,247,241,.85);font-weight:300}
+  .local-info a{color:rgba(250,247,241,.85);text-decoration:none;border-bottom:1px solid var(--linha-clara)}
+  .local-info a:hover{color:#fff}
+  .local-map{position:relative;min-height:560px;filter:grayscale(.3) contrast(1.05)}
+  .local-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* CTA */
+  .cta{padding:140px 0;text-align:center;color:var(--offwhite);position:relative;
+    background:linear-gradient(rgba(28,25,22,.72),rgba(28,25,22,.82)),
+    url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=85') center/cover fixed}
+  .cta .eyebrow{color:var(--ouro-luz)}
+  .cta h2{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;margin:24px 0 18px;font-weight:300}
+  .cta h2 em{font-style:italic;color:var(--ouro-luz)}
+  .cta p{color:rgba(250,247,241,.78);max-width:48ch;margin:0 auto 42px;font-weight:300;font-size:1.08rem}
+
+  /* FOOTER */
+  footer{background:#15120f;color:rgba(250,247,241,.74);padding:84px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;padding-bottom:52px;border-bottom:1px solid var(--linha-clara)}
+  .foot-brand .monogram{border-color:var(--ouro-luz);color:var(--ouro-luz);margin-bottom:20px}
+  .foot-brand p{font-weight:300;max-width:36ch;font-size:.92rem}
+  footer h4{font-family:'Jost';font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro-luz);margin-bottom:18px}
+  footer a{color:rgba(250,247,241,.74);text-decoration:none;display:block;margin-bottom:11px;font-size:.92rem;font-weight:300}
+  footer a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:14px;font-size:.76rem;color:rgba(250,247,241,.45)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .wa{position:fixed;right:24px;bottom:24px;z-index:90;width:58px;height:58px;border-radius:50%;background:var(--ouro);
+    display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(184,137,61,.7);text-decoration:none;transition:transform .3s}
+  .wa:hover{transform:scale(1.08)}.wa svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:980px){
+    nav{padding:18px 24px}.nav-links{display:none}.burger{display:flex}
+    .hero-inner{padding:0 24px 64px}.hero-scroll{display:none}
+    .steps{grid-template-columns:1fr;gap:0}
+    .grid-frentes{grid-template-columns:1fr}.card.big,.card.sm{grid-column:auto}
+    .feature-grid{grid-template-columns:1fr}.feature-img{min-height:360px;order:1}.feature-copy{order:2;padding:64px 24px}
+    .prova-grid{grid-template-columns:repeat(2,1fr);gap:46px 20px}
+    .local-grid{grid-template-columns:1fr}.local-copy{padding:80px 24px}.local-map{min-height:340px}
+    .foot-grid{grid-template-columns:1fr;gap:38px}.wrap{padding:0 24px}
+  }
+  @media(max-width:520px){.hero h1{font-size:3.4rem}.prova-grid{grid-template-columns:1fr}.card{min-height:380px}}
+</style>
+</head>
+<body>
+
+<nav id="nav" class="light">
+  <a class="brand" href="#top">
+    <span class="monogram">A</span>
+    <span class="brand-name">Aline Amoroso<small>Estética Avançada</small></span>
+  </a>
+  <div class="nav-links">
+    <a href="#metodo">O método</a>
+    <a href="#frentes">Tratamentos</a>
+    <a href="#valores">Valores</a>
+    <a href="#local">Onde estamos</a>
+    <a class="nav-cta" href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">Agendar</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker"><span class="gold-rule"></span><span>São Paulo · Estética &amp; Saúde</span></div>
+    <h1>Resultado<br>não é sorte.<br>É <em>método.</em></h1>
+    <p class="hero-sub">Estética avançada, equipe médica e protocolos pensados para entregar o que prometemos: resultado de alto padrão, natural e duradouro.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">Agende sua avaliação</a>
+      <a class="btn-line" href="#metodo">Como funciona</a>
+    </div>
+  </div>
+  <div class="hero-scroll">role para descobrir ↓</div>
+</header>
+
+<!-- PROMESSA -->
+<section class="promessa">
+  <div class="wrap reveal">
+    <span class="eyebrow">A promessa da casa</span>
+    <h2>Alto padrão não é uma palavra bonita.<br>É um <em>compromisso</em> com o seu reflexo no espelho.</h2>
+    <p class="lead">Tem clínica que vende procedimento. Aqui a gente entrega transformação. Cada protocolo nasce de uma avaliação honesta, é executado com ativos de ponta e acompanhado até o resultado aparecer, e continuar aparecendo. É por isso que, mais de 3 mil protocolos depois, a confiança das nossas pacientes continua brilhando.</p>
+  </div>
+</section>
+
+<!-- METODO -->
+<section class="metodo" id="metodo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">O que está por trás do resultado</span>
+      <h2>Três etapas que separam um <em>resultado</em> de uma tentativa.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">01</div>
+        <h3>Avaliação honesta</h3>
+        <p>Antes de qualquer aparelho, entendemos a sua pele, o seu corpo e o seu objetivo real. Sem promessa vazia: o que dá, dá; o que não dá, a gente fala.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">02</div>
+        <h3>Protocolo de ponta</h3>
+        <p>Tecnologias e ativos de alto padrão, do microagulhamento com peptídeos GHK-Cu ao Ultraformer III, aplicados na medida certa para o seu caso.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">03</div>
+        <h3>Acompanhamento</h3>
+        <p>Resultado de verdade se constrói no tempo. Acompanhamos cada etapa para garantir que a transformação chegue, e permaneça.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRENTES -->
+<section class="frentes wrap" id="frentes">
+  <div class="sec-head-row reveal">
+    <h2>Do rosto ao corpo,<br>da pele à <em>saúde.</em></h2>
+    <p>Quatro frentes de cuidado sob o mesmo teto e o mesmo padrão de excelência.</p>
+  </div>
+  <div class="grid-frentes">
+    <a class="card big reveal" href="#destaque">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1100&q=85')"></div>
+      <div class="arrow">↗</div>
+      <div class="body"><span class="num">01</span><h3>Estética Facial</h3>
+        <p class="desc">Rejuvenescimento, microagulhamento com peptídeos, peeling, skinbooster, radiofrequência, melasma e mais.</p>
+        <div class="tags">Microagulhamento · Skinbooster · Peeling</div></div>
+    </a>
+    <a class="card sm reveal" href="#valores">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="arrow">↗</div>
+      <div class="body"><span class="num">02</span><h3>Estética Corporal</h3>
+        <p class="desc">Drenagem, modeladora, lipocavitação, criolipólise e pós-operatório.</p>
+        <div class="tags">Drenagem · Modeladora · Criolipólise</div></div>
+    </a>
+    <a class="card sm reveal" href="#valores">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="arrow">↗</div>
+      <div class="body"><span class="num">03</span><h3>Depilação a Laser</h3>
+        <p class="desc">Pele lisa e duradoura, com protocolos femininos e masculinos.</p>
+        <div class="tags">Feminino · Masculino · Corpo inteiro</div></div>
+    </a>
+    <a class="card big reveal" href="#local">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1100&q=85')"></div>
+      <div class="arrow">↗</div>
+      <div class="body"><span class="num">04</span><h3>Saúde &amp; Bem-estar</h3>
+        <p class="desc">Médico vascular, endocrinologia, nutrição e podologia especializada. Cuidado completo, porque autoestima também é saúde.</p>
+        <div class="tags">Vascular · Nutrição · Podologia</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- CARRO-CHEFE -->
+<section class="feature" id="destaque">
+  <div class="feature-grid">
+    <div class="feature-img reveal"></div>
+    <div class="feature-copy reveal">
+      <span class="eyebrow">O protocolo em destaque</span>
+      <h2>Rejuvenescimento facial<br>com <em>peptídeos GHK-Cu.</em></h2>
+      <ul class="feature-list">
+        <li><span class="dot"></span> Limpeza profunda que prepara a pele</li>
+        <li><span class="dot"></span> Microagulhamento com peptídeos GHK-Cu</li>
+        <li><span class="dot"></span> Estímulo de colágeno e renovação visível</li>
+      </ul>
+      <div class="price-row"><div><div class="lead">12x de</div><div class="val"><small>R$</small> 87<span class="cents">,99</span></div></div></div>
+      <a class="btn-primary" style="background:var(--carvao);color:var(--offwhite)" href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">Invista em você</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores wrap" id="valores">
+  <div style="text-align:center" class="reveal">
+    <span class="eyebrow">Tabela de valores</span>
+    <h2 style="font-size:clamp(2.1rem,4vw,3.2rem);color:var(--carvao);font-weight:300;margin-top:16px">Transparência em cada <em style="font-style:italic;color:var(--ouro)">cuidado.</em></h2>
+  </div>
+  <div class="acc reveal">
+    <div class="acc-item">
+      <button class="acc-head"><span class="t">Tratamentos Faciais</span><span class="ic">+</span></button>
+      <div class="acc-body"><div class="acc-body-inner">
+        <div class="price-line"><span class="name">Revitalização</span><span class="p">R$ 149,00</span></div>
+        <div class="price-line"><span class="name">Limpeza de pele</span><span class="p">R$ 149,90</span></div>
+        <div class="price-line"><span class="name">Radiofrequência</span><span class="p">R$ 249,00</span></div>
+        <div class="price-line"><span class="name">Microagulhamento</span><span class="p">R$ 449,99</span></div>
+        <div class="price-line"><span class="name">Peeling de diamante</span><span class="p">R$ 449,99</span></div>
+        <div class="price-line"><span class="name">Skinbooster</span><span class="p">R$ 499,00</span></div>
+        <div class="price-line"><span class="name">Melasma · Toxina · Preenchimento · Bioestimulador · Ultraformer III</span><span class="p consult">Consultar</span></div>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-head"><span class="t">Tratamentos Corporais</span><span class="ic">+</span></button>
+      <div class="acc-body"><div class="acc-body-inner">
+        <div class="price-line"><span class="name">Drenagem linfática</span><span class="p">R$ 149,90</span></div>
+        <div class="price-line"><span class="name">Drenagem pós-operatório</span><span class="p">R$ 189,90</span></div>
+        <div class="price-line"><span class="name">Massagem modeladora</span><span class="p">R$ 149,90</span></div>
+        <div class="price-line"><span class="name">Massagem relaxante</span><span class="p">R$ 289,90</span></div>
+        <div class="price-line"><span class="name">Lipocavitação · Radiofrequência</span><span class="p">R$ 249,90</span></div>
+        <div class="price-line"><span class="name">Enzimas</span><span class="p">R$ 189,90</span></div>
+        <div class="price-line"><span class="name">Criolipólise · Ultraformer III</span><span class="p consult">Consultar</span></div>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-head"><span class="t">Depilação a Laser</span><span class="ic">+</span></button>
+      <div class="acc-body"><div class="acc-body-inner">
+        <div class="price-line"><span class="name">Axila · Buço · Mento</span><span class="p">R$ 79,99</span></div>
+        <div class="price-line"><span class="name">Rosto total</span><span class="p">R$ 149,99</span></div>
+        <div class="price-line"><span class="name">Virilha simples</span><span class="p">R$ 99,99</span></div>
+        <div class="price-line"><span class="name">Virilha completa</span><span class="p">R$ 149,99</span></div>
+        <div class="price-line"><span class="name">Meia perna</span><span class="p">R$ 149,99</span></div>
+        <div class="price-line"><span class="name">Perna inteira</span><span class="p">R$ 249,99</span></div>
+        <div class="price-line"><span class="name">Barba completa (masc.)</span><span class="p">R$ 149,90</span></div>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-head"><span class="t">Saúde, Podologia &amp; Médicos</span><span class="ic">+</span></button>
+      <div class="acc-body"><div class="acc-body-inner">
+        <div class="price-line"><span class="name">Ozonioterapia · Alta frequência</span><span class="p">R$ 149,00</span></div>
+        <div class="price-line"><span class="name">Podologia (avaliação, unhas, calos)</span><span class="p consult">Consultar</span></div>
+        <div class="price-line"><span class="name">Médico vascular · Dr. Mário</span><span class="p consult">Consultar</span></div>
+        <div class="price-line"><span class="name">Endocrinologia &amp; Nutrição</span><span class="p consult">Consultar</span></div>
+        <div class="price-line"><span class="name">Estética capilar &amp; sobrancelhas</span><span class="p consult">Consultar</span></div>
+      </div></div>
+    </div>
+  </div>
+  <p class="valores-note">Aceitamos dinheiro, cartões e PIX · Atendimento com horário marcado</p>
+</section>
+
+<!-- PROVA -->
+<section class="prova">
+  <div class="wrap"><div class="prova-grid">
+    <div class="reveal"><div class="n">+3 mil</div><div class="l">Protocolos realizados</div></div>
+    <div class="reveal"><div class="n">2016</div><div class="l">Desde a fundação</div></div>
+    <div class="reveal"><div class="n">4</div><div class="l">Frentes de cuidado</div></div>
+    <div class="reveal"><div class="n">GHK-Cu</div><div class="l">Ativos de ponta</div></div>
+  </div></div>
+</section>
+
+<!-- LOCALIDADE -->
+<section class="local" id="local">
+  <div class="local-grid">
+    <div class="local-copy reveal">
+      <span class="eyebrow">Onde a transformação acontece</span>
+      <h2>Um endereço pensado para <em>receber você.</em></h2>
+      <p style="color:rgba(250,247,241,.7);font-weight:300;max-width:46ch">No coração de São Paulo, um espaço acolhedor e equipado para entregar estética e saúde com o cuidado que cada detalhe merece.</p>
+      <ul class="local-info">
+        <li><span class="ic">⌖</span><div><div class="k">Endereço</div><div class="v">Av. Pasteur, 211 · São Paulo, SP</div></div></li>
+        <li><span class="ic">✆</span><div><div class="k">Agendamento</div><div class="v"><a href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">WhatsApp (11) 94739-8724</a></div></div></li>
+        <li><span class="ic">◷</span><div><div class="k">Atendimento</div><div class="v">Com horário marcado · Dinheiro, cartões e PIX</div></div></li>
+        <li><span class="ic">◎</span><div><div class="k">Instagram</div><div class="v"><a href="https://www.instagram.com/esteticaalineamoroso" target="_blank" rel="noopener">@esteticaalineamoroso</a></div></div></li>
+      </ul>
+      <a class="btn-primary" style="margin-top:40px;background:var(--ouro-luz);color:var(--carvao)" href="https://www.google.com/maps/search/?api=1&query=Av.+Pasteur+211+São+Paulo+SP" target="_blank" rel="noopener">Traçar rota</a>
+    </div>
+    <div class="local-map reveal">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Av.%20Pasteur%20211%20S%C3%A3o%20Paulo%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contato">
+  <div class="wrap reveal">
+    <span class="eyebrow">O primeiro passo</span>
+    <h2>Sua melhor versão<br>começa com uma <em>conversa.</em></h2>
+    <p>Conte o que você quer transformar. Montamos o protocolo certo para o seu momento, com método, cuidado e sem pressa.</p>
+    <a class="btn-primary" style="background:var(--ouro-luz);color:var(--carvao)" href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">Agende sua avaliação</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="monogram">A</span>
+        <p>Aline Amoroso · Clínica de Estética Avançada. Resultado de alto padrão, com método e cuidado, em São Paulo.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener">WhatsApp (11) 94739-8724</a>
+        <a href="https://www.instagram.com/esteticaalineamoroso" target="_blank" rel="noopener">@esteticaalineamoroso</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Pasteur+211+São+Paulo+SP" target="_blank" rel="noopener">Av. Pasteur, 211 · São Paulo, SP</a>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="#metodo">O método</a>
+        <a href="#frentes">Tratamentos</a>
+        <a href="#valores">Valores</a>
+        <a href="#local">Onde estamos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Estética Aline Amoroso</span>
+      <span>Dinheiro · Cartões · PIX · Horário marcado</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://api.whatsapp.com/send?phone=5511947398724" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+  const nav=document.getElementById('nav');
+  const hero=document.getElementById('top');
+  function onScroll(){
+    const scrolled=window.scrollY>40;
+    nav.classList.toggle('scrolled',scrolled);
+    const overHero=window.scrollY < hero.offsetHeight - 90;
+    nav.classList.toggle('light', overHero && !scrolled);
+  }
+  window.addEventListener('scroll',onScroll);onScroll();
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*80)+'ms';io.observe(el)});
+
+  document.querySelectorAll('.acc-head').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const item=h.parentElement,body=h.nextElementSibling,open=item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(it=>{it.classList.remove('open');it.querySelector('.acc-body').style.maxHeight=null});
+      if(!open){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px'}
+    });
+  });
+  document.getElementById('burger').addEventListener('click',()=>document.getElementById('frentes').scrollIntoView({behavior:'smooth'}));
+</script>
+</body>
+</html>
