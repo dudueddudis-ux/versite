@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio</title>
+<meta name="description" content="Sites publicados.">
+
+<!-- ============================================================
+     CONFIGURAÇÃO  (edite só esta parte se precisar)
+     ============================================================ -->
+<script>
+  window.PORTFOLIO_CONFIG = {
+    // Repositório no GitHub
+    owner:  "dudueddudis-ux",
+    repo:   "versite",
+    branch: "main",
+
+    // Texto do topo
+    studioName: "versite",
+    headline:   "Sites no ar",
+    subtitle:   "Cada projeto abaixo é um cliente publicado. A lista se atualiza sozinha a cada push.",
+
+    // Pastas que NÃO são clientes (ignoradas)
+    ignore: [".git", ".github", "assets", "node_modules", "img", "images", "static", "vendor"],
+
+    // Nomes de arquivo de thumb que a home procura dentro de cada pasta, em ordem.
+    // Recomendado: thumb.webp em 1200x750 (16:10), abaixo de ~150KB.
+    thumbNames: ["thumb.webp", "thumb.jpg", "thumb.png", "preview.jpg"],
+
+    // Fallback automático de screenshot quando a pasta não tem thumb próprio.
+    // thum.io é gratuito até 1000 imagens/mês sem cadastro. Deixe false pra desligar.
+    useScreenshotFallback: true
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg-2:#141417;
+    --card:#161619;
+    --ink:#f3efe6;
+    --muted:#94949b;
+    --faint:#6a6a70;
+    --line:rgba(255,255,255,.10);
+    --line-2:rgba(255,255,255,.06);
+    --accent:#ff5230;
+    --accent-2:#ffb38a;
+    --radius:18px;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* atmosfera de fundo: glow suave + grão sutil */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(900px 600px at 78% -8%, rgba(255,82,48,.16), transparent 60%),
+      radial-gradient(700px 500px at -5% 8%, rgba(120,140,255,.07), transparent 55%),
+      var(--bg);
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+  /* ---------- topo ---------- */
+  header{padding:64px 0 30px}
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:22px;
+  }
+  .kicker::after{content:"";height:1px;flex:1;background:var(--line);max-width:140px}
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(44px,8vw,86px);
+    line-height:.96;
+    letter-spacing:-.02em;
+  }
+  h1 em{font-style:italic;color:var(--accent-2)}
+  .sub{
+    color:var(--muted);
+    max-width:46ch;
+    margin-top:22px;
+    font-size:clamp(15px,1.6vw,18px);
+  }
+  .meta{
+    display:flex; align-items:baseline; gap:10px;
+    margin-top:34px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--faint);
+  }
+  .count{color:var(--ink);font-size:15px}
+  .count b{color:var(--accent);font-weight:500}
+
+  /* ---------- grade ---------- */
+  main{padding:14px 0 90px}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+    gap:26px;
+  }
+
+  .card{
+    position:relative;
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    background:var(--card);
+    border:1px solid var(--line-2);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .45s;
+    opacity:0;
+    transform:translateY(18px);
+  }
+  .card.in{opacity:1;transform:none}
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,82,48,.55);
+    box-shadow:0 26px 50px -22px rgba(0,0,0,.8), 0 0 0 1px rgba(255,82,48,.25);
+  }
+
+  .shot{
+    position:relative;
+    aspect-ratio:16/10;
+    background:var(--bg-2);
+    overflow:hidden;
+  }
+  .shot img{
+    width:100%; height:100%;
+    object-fit:cover; object-position:top center;
+    display:block;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s;
+    opacity:0;
+  }
+  .shot img.ready{opacity:1}
+  .card:hover .shot img{transform:scale(1.04)}
+
+  /* skeleton enquanto carrega */
+  .shot.loading::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.05) 50%,transparent 80%);
+    background-size:200% 100%;
+    animation:sweep 1.3s infinite;
+  }
+  @keyframes sweep{from{background-position:200% 0}to{background-position:-200% 0}}
+
+  /* placeholder final (sem screenshot disponível) */
+  .ph{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-size:60px; color:rgba(255,255,255,.9);
+    letter-spacing:-.02em;
+  }
+  .ph span{mix-blend-mode:overlay}
+
+  .body{padding:18px 20px 20px}
+  .name{
+    font-family:var(--serif);
+    font-size:21px;
+    font-weight:600;
+    letter-spacing:-.01em;
+    line-height:1.15;
+  }
+  .slug{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--faint);
+    margin-top:8px;
+    display:flex; align-items:center; gap:7px;
+  }
+  .slug .arrow{
+    color:var(--accent);
+    transition:transform .35s;
+  }
+  .card:hover .slug .arrow{transform:translateX(4px)}
+
+  /* ---------- estados ---------- */
+  .state{
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    padding:54px 30px;
+    text-align:center;
+    color:var(--muted);
+  }
+  .state h2{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--ink);margin-bottom:10px}
+  .state p{max-width:48ch;margin:0 auto}
+  .state code{font-family:var(--mono);font-size:.85em;color:var(--accent-2);background:rgba(255,255,255,.05);padding:2px 6px;border-radius:5px}
+
+  footer{
+    border-top:1px solid var(--line-2);
+    padding:30px 0 50px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--faint);
+    display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between;
+  }
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+
+  @media (max-width:560px){
+    .wrap{padding:0 18px}
+    header{padding:42px 0 22px}
+    .grid{grid-template-columns:1fr;gap:18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .card{opacity:1;transform:none;transition:none}
+    .shot img,.card:hover .shot img{transition:none;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="kicker"><span id="studio">portfólio</span></div>
+    <h1 id="headline">Sites <em>no ar</em></h1>
+    <p class="sub" id="subtitle"></p>
+    <div class="meta">
+      <span class="count" id="count">carregando…</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <div id="empty"></div>
+  </main>
+
+  <footer>
+    <span id="foot-studio">versite</span>
+    <span>atualizado automaticamente via push</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = window.PORTFOLIO_CONFIG;
+  var ORIGIN = location.origin; // ex.: https://versite.pages.dev
+  var CACHE_KEY = "versite_portfolio_v1";
+
+  // textos do topo
+  document.getElementById("studio").textContent = CFG.studioName;
+  document.getElementById("foot-studio").textContent = CFG.studioName;
+  document.getElementById("subtitle").textContent = CFG.subtitle;
+  var headlineEl = document.getElementById("headline");
+  // headline com a última palavra em itálico/accent
+  (function(){
+    var parts = CFG.headline.trim().split(" ");
+    if(parts.length > 1){
+      var last = parts.pop();
+      headlineEl.innerHTML = escapeHtml(parts.join(" ")) + " <em>" + escapeHtml(last) + "</em>";
+    } else {
+      headlineEl.innerHTML = "<em>" + escapeHtml(CFG.headline) + "</em>";
+    }
+  })();
+
+  var grid = document.getElementById("grid");
+  var countEl = document.getElementById("count");
+  var emptyEl = document.getElementById("empty");
+
+  // ---------- cache ----------
+  function readCache(){
+    try { return JSON.parse(localStorage.getItem(CACHE_KEY)) || null; }
+    catch(e){ return null; }
+  }
+  function writeCache(obj){
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(obj)); } catch(e){}
+  }
+  var cache = readCache() || { dirs:[], titles:{} };
+
+  // ---------- helpers ----------
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  function prettify(slug){
+    var small = {de:1,da:1,do:1,das:1,dos:1,e:1,com:1,para:1,a:1,o:1};
+    return slug.split(/[-_]+/).map(function(w,i){
+      if(!w) return "";
+      var lw = w.toLowerCase();
+      if(i>0 && small[lw]) return lw;
+      return lw.charAt(0).toUpperCase() + lw.slice(1);
+    }).join(" ").trim();
+  }
+
+  function thumbCandidates(dir){
+    var list = CFG.thumbNames.map(function(n){ return "/" + dir + "/" + n; });
+    if(CFG.useScreenshotFallback){
+      list.push("https://image.thum.io/get/width/900/crop/700/" + ORIGIN + "/" + dir + "/");
+    }
+    return list;
+  }
+
+  // gradiente determinístico a partir do nome (para o placeholder)
+  function hueOf(str){
+    var h=0; for(var i=0;i<str.length;i++){ h=(h*31 + str.charCodeAt(i))>>>0; }
+    return h % 360;
+  }
+
+  function attachThumb(shotEl, dir){
+    var cands = thumbCandidates(dir);
+    var img = document.createElement("img");
+    img.alt = "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    var i = 0;
+    function tryNext(){
+      if(i >= cands.length){ // acabou: placeholder em CSS
+        showPlaceholder(shotEl, dir);
+        return;
+      }
+      img.src = cands[i++];
+    }
+    img.onload = function(){
+      shotEl.classList.remove("loading");
+      img.classList.add("ready");
+    };
+    img.onerror = function(){
+      // thum.io às vezes responde com um GIF de "carregando" válido; isso conta como load,
+      // então o onerror aqui cobre só os 404 dos thumbs locais e falhas de rede.
+      tryNext();
+    };
+    shotEl.appendChild(img);
+    tryNext();
+  }
+
+  function showPlaceholder(shotEl, dir){
+    shotEl.classList.remove("loading");
+    var existing = shotEl.querySelector("img");
+    if(existing) existing.remove();
+    var h = hueOf(dir);
+    shotEl.style.background =
+      "linear-gradient(135deg, hsl("+h+",55%,22%), hsl("+((h+40)%360)+",60%,12%))";
+    var initials = (cache.titles[dir] || prettify(dir))
+      .replace(/[^A-Za-zÀ-ÿ ]/g,"")
+      .trim().split(/\s+/).slice(0,2)
+      .map(function(w){return w.charAt(0).toUpperCase();}).join("");
+    var ph = document.createElement("div");
+    ph.className = "ph";
+    ph.innerHTML = "<span>"+escapeHtml(initials||"·")+"</span>";
+    shotEl.appendChild(ph);
+  }
+
+  // ---------- render ----------
+  function makeCard(dir, index){
+    var a = document.createElement("a");
+    a.className = "card";
+    a.href = "/" + dir + "/";
+    a.style.transitionDelay = Math.min(index*55, 600) + "ms";
+
+    var shot = document.createElement("div");
+    shot.className = "shot loading";
+    a.appendChild(shot);
+
+    var body = document.createElement("div");
+    body.className = "body";
+    var name = document.createElement("div");
+    name.className = "name";
+    name.textContent = cache.titles[dir] || prettify(dir);
+    var slug = document.createElement("div");
+    slug.className = "slug";
+    slug.innerHTML = "/" + escapeHtml(dir) + " <span class='arrow'>&rarr;</span>";
+    body.appendChild(name);
+    body.appendChild(slug);
+    a.appendChild(body);
+
+    attachThumb(shot, dir);
+    grid.appendChild(a);
+
+    // anima entrada
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ a.classList.add("in"); }); });
+
+    // busca o <title> real (mesma origem, sem limite do GitHub)
+    if(!cache.titles[dir]) fetchTitle(dir, name);
+    return a;
+  }
+
+  function fetchTitle(dir, nameEl){
+    fetch("/" + dir + "/", { headers:{ "Accept":"text/html" } })
+      .then(function(r){ return r.ok ? r.text() : null; })
+      .then(function(html){
+        if(!html) return;
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        var t = doc.querySelector("title");
+        var title = t && t.textContent ? t.textContent.trim() : "";
+        if(title && title.length <= 70){
+          nameEl.textContent = title;
+          cache.titles[dir] = title;
+          writeCache(cache);
+        }
+      })
+      .catch(function(){ /* offline / file:// : mantém o nome formatado */ });
+  }
+
+  function renderList(dirs){
+    grid.innerHTML = "";
+    emptyEl.innerHTML = "";
+    dirs.forEach(function(d,i){ makeCard(d,i); });
+    var n = dirs.length;
+    countEl.innerHTML = "<b>" + n + "</b> " + (n===1 ? "site publicado" : "sites publicados");
+  }
+
+  function showError(){
+    countEl.textContent = "lista indisponível agora";
+    emptyEl.innerHTML =
+      '<div class="state"><h2>Não consegui carregar a lista agora</h2>' +
+      '<p>A API pública do GitHub limita a 60 consultas por hora por IP. ' +
+      'Atualize a página em alguns minutos. Os clientes continuam acessíveis direto pela URL, ex.: ' +
+      '<code>/'+escapeHtml((cache.dirs[0]||"cliente"))+'</code>.</p></div>';
+  }
+
+  function isClient(item){
+    if(item.type !== "dir") return false;
+    var n = item.name;
+    if(n.charAt(0) === ".") return false;
+    return CFG.ignore.indexOf(n) === -1;
+  }
+
+  // 1) render imediato do cache (se houver) pra parecer instantâneo
+  if(cache.dirs && cache.dirs.length){
+    renderList(cache.dirs);
+  }
+
+  // 2) busca a lista atual na rede e atualiza
+  var api = "https://api.github.com/repos/" + CFG.owner + "/" + CFG.repo +
+            "/contents/?ref=" + CFG.branch;
+
+  fetch(api, { headers:{ "Accept":"application/vnd.github+json" } })
+    .then(function(r){
+      if(!r.ok) throw new Error("status " + r.status);
+      return r.json();
+    })
+    .then(function(items){
+      if(!Array.isArray(items)) throw new Error("resposta inesperada");
+      var dirs = items.filter(isClient).map(function(x){ return x.name; })
+                      .sort(function(a,b){ return a.localeCompare(b,"pt-BR"); });
+      var changed = dirs.join("|") !== (cache.dirs||[]).join("|");
+      cache.dirs = dirs;
+      writeCache(cache);
+      if(changed || !grid.children.length) renderList(dirs);
+      if(!dirs.length){
+        emptyEl.innerHTML = '<div class="state"><h2>Nenhum cliente encontrado</h2>' +
+          '<p>Crie uma pasta na raiz do repositório com um <code>index.html</code> dentro e dê push.</p></div>';
+      }
+    })
+    .catch(function(){
+      if(!grid.children.length) showError(); // só erra se nem o cache salvou o dia
+    });
+})();
+</script>
+</body>
+</html>
