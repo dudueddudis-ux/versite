@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcão do Gás · Disque-gás na Vila Ré, Penha e Itinguçu</title>
+<meta name="description" content="Botijão de gás e água mineral entregues na sua porta. Atendemos Vila Ré, Penha, Itinguçu e bairros vizinhos. Peça pelo telefone ou WhatsApp.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --orange: #E85D1C;
+  --orange-dark: #C84A0F;
+  --orange-soft: #FFF1E8;
+  --blue: #1F3A5F;
+  --blue-soft: #F4F6FA;
+  --ink: #2A2A2A;
+  --gray: #6B7280;
+  --gray-line: #E5E7EB;
+  --white: #FFFFFF;
+  --whats: #25D366;
+  --whats-dark: #1DA851;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ============ TOP BAR ============ */
+.topbar {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.topbar a { color: var(--white); text-decoration: none; }
+.topbar .info { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.topbar .info span { display: inline-flex; align-items: center; gap: 6px; }
+
+@media (max-width: 680px) {
+  .topbar { font-size: 13px; }
+  .topbar .container { justify-content: center; text-align: center; }
+}
+
+/* ============ HEADER ============ */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text .main {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.01em;
+}
+
+.logo-text .sub {
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: 500;
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav.main-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav.main-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+nav.main-nav a:hover { color: var(--orange); }
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn-whats {
+  background: var(--whats);
+  color: var(--white);
+  box-shadow: 0 2px 6px rgba(37,211,102,0.25);
+}
+
+.btn-whats:hover {
+  background: var(--whats-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,211,102,0.35);
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 2px 6px rgba(232,93,28,0.25);
+}
+
+.btn-orange:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232,93,28,0.35);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline:hover { background: var(--blue); color: var(--white); }
+
+.btn-lg { padding: 16px 28px; font-size: 18px; }
+
+@media (max-width: 980px) {
+  nav.main-nav { display: none; }
+  header .container { gap: 12px; }
+  .header-cta .btn:not(.btn-whats) { display: none; }
+}
+
+@media (max-width: 540px) {
+  .logo-text .main { font-size: 19px; }
+  .logo-text .sub { font-size: 10px; }
+  .logo-icon { width: 40px; height: 40px; }
+  .header-cta .btn { padding: 10px 16px; font-size: 14px; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  background: linear-gradient(135deg, var(--blue-soft) 0%, var(--white) 100%);
+  padding: 64px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232,93,28,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange-soft);
+  color: var(--orange-dark);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 4.8vw, 54px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--blue);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span { color: var(--orange); }
+
+.hero p.lead {
+  font-size: 19px;
+  color: var(--gray);
+  margin-bottom: 32px;
+  max-width: 540px;
+  line-height: 1.55;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-line);
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.trust-item .icon {
+  width: 28px;
+  height: 28px;
+  background: var(--orange-soft);
+  color: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(31,58,95,0.12);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--gray-line);
+}
+
+.hero-card h3 {
+  font-size: 18px;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.hero-card .price-from {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 18px;
+}
+
+.hero-card .product-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: var(--orange-soft);
+  border-radius: 12px;
+}
+
+.hero-card .product-img svg { height: 170px; width: auto; }
+
+.hero-card .price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-line);
+  margin-bottom: 18px;
+}
+
+.hero-card .label { font-size: 14px; color: var(--gray); }
+.hero-card .price { font-size: 22px; font-weight: 800; color: var(--blue); }
+
+.hero-card .btn { width: 100%; justify-content: center; }
+
+@media (max-width: 900px) {
+  .hero { padding: 40px 0 60px; }
+  .hero .container { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 32px; }
+  .hero p.lead { font-size: 17px; }
+}
+
+/* ============ FAIXA INFO ============ */
+.info-bar {
+  background: var(--blue);
+  color: var(--white);
+  padding: 28px 0;
+}
+
+.info-bar .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.info-item .ic {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-item .label { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 2px; }
+.info-item .value { font-size: 16px; font-weight: 700; }
+
+@media (max-width: 900px) {
+  .info-bar .container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 540px) {
+  .info-bar .container { grid-template-columns: 1fr; }
+}
+
+/* ============ SECTION GENÉRICO ============ */
+section.block {
+  padding: 80px 0;
+}
+
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--gray);
+  margin-top: 14px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============ PRODUTOS ============ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.product {
+  background: var(--white);
+  border: 1px solid var(--gray-line);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(31,58,95,0.1);
+}
+
+.product-icon {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: var(--orange-soft);
+  border-radius: 12px;
+}
+
+.product-icon svg { height: 150px; width: auto; }
+
+.product h3 {
+  font-size: 22px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.product p {
+  color: var(--gray);
+  margin-bottom: 24px;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.product .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 880px) {
+  .products-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============ COBERTURA ============ */
+.cobertura {
+  background: var(--blue-soft);
+}
+
+.cobertura-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.cobertura-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.bairro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-line);
+}
+
+.bairro .check {
+  width: 24px;
+  height: 24px;
+  background: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bairro .nome {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.cobertura-card {
+  background: var(--white);
+  padding: 36px;
+  border-radius: 16px;
+  border: 1px solid var(--gray-line);
+  text-align: center;
+}
+
+.cobertura-card .pin {
+  width: 72px;
+  height: 72px;
+  background: var(--orange-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.cobertura-card h3 {
+  color: var(--blue);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.cobertura-card .address {
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.cobertura-card .cep {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.cobertura-card .hours {
+  background: var(--orange-soft);
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: var(--orange-dark);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cobertura-card .btn { width: 100%; justify-content: center; }
+
+@media (max-width: 880px) {
+  .cobertura-grid { grid-template-columns: 1fr; gap: 30px; }
+  .cobertura-list { grid-template-columns: 1fr; }
+}
+
+/* ============ COMO PEDIR ============ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-num {
+  width: 56px;
+  height: 56px;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(232,93,28,0.3);
+}
+
+.step h3 {
+  color: var(--blue);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: var(--gray);
+  font-size: 16px;
+}
+
+@media (max-width: 760px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ============ POR QUE ============ */
+.porque {
+  background: var(--blue-soft);
+}
+
+.porque-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.pilar {
+  background: var(--white);
+  padding: 32px 28px;
+  border-radius: 16px;
+  border: 1px solid var(--gray-line);
+}
+
+.pilar-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--orange-soft);
+  color: var(--orange);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pilar h3 {
+  color: var(--blue);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.pilar p {
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 880px) {
+  .porque-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ============ CTA FINAL ============ */
+.cta-final {
+  background: linear-gradient(135deg, var(--blue) 0%, #2a4d7a 100%);
+  color: var(--white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-final h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.cta-final p {
+  font-size: 19px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-final-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-final .btn-call {
+  background: var(--white);
+  color: var(--blue);
+}
+
+.cta-final .btn-call:hover {
+  background: var(--orange-soft);
+  color: var(--orange-dark);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: #1A2A42;
+  color: rgba(255,255,255,0.85);
+  padding: 60px 0 24px;
+  font-size: 15px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+footer h4 {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+footer .logo-text .main { color: var(--white); }
+footer .logo-text .sub { color: rgba(255,255,255,0.6); }
+
+footer p { line-height: 1.7; margin-bottom: 8px; }
+footer a { color: rgba(255,255,255,0.85); text-decoration: none; line-height: 2; display: block; }
+footer a:hover { color: var(--orange); }
+
+.footer-about {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 880px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+
+@media (max-width: 540px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ WHATS FLOAT ============ */
+.whats-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: var(--whats);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  z-index: 99;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+
+.whats-float:hover { transform: scale(1.1); }
+
+.whats-float svg { width: 32px; height: 32px; }
+
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="info">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="currentColor" stroke="none"/></svg>
+        Rua Itinguçu, 2512 · Vila Ré · SP
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Aberto todo dia das 7h às 22h
+      </span>
+    </div>
+    <a href="tel:+551126826444">
+      <strong>(11) 2682-6444</strong>
+    </a>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <!-- chama -->
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+          <path d="M12 2s-2 4-2 7c0 2 1 3 2 3s2-1 2-3c0-3-2-7-2-7zm0 10c-4 0-7 3-7 7 0 3 3 5 7 5s7-2 7-5c0-4-3-7-7-7z" opacity="0.9"/>
+          <path d="M12 14c-2 0-3 2-3 4s1 3 3 3 3-1 3-3-1-4-3-4z" fill="white" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="main">Marcão do Gás</span>
+        <span class="sub">Disque-gás · Vila Ré</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#produtos">Produtos</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#como-pedir">Como pedir</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header-cta">
+      <a href="tel:+551126826444" class="btn btn-outline">Ligar</a>
+      <a href="https://wa.me/5511984361786" target="_blank" rel="noopener" class="btn btn-whats">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+        Disque-gás na zona leste de SP
+      </div>
+      <h1>Gás de cozinha entregue na sua porta. <span>Rápido e seguro.</span></h1>
+      <p class="lead">Atendemos Vila Ré, Penha, Itinguçu e bairros vizinhos. É só ligar ou chamar no WhatsApp que entregamos no mesmo dia, sem complicação.</p>
+
+      <div class="hero-cta-group">
+        <a href="https://wa.me/5511984361786" target="_blank" rel="noopener" class="btn btn-whats btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Pedir pelo WhatsApp
+        </a>
+        <a href="tel:+551126826444" class="btn btn-orange btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.2a1 1 0 00.24-1.02A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>
+          (11) 2682-6444
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Entrega no mesmo dia
+        </div>
+        <div class="trust-item">
+          <span class="icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Atendimento humano
+        </div>
+        <div class="trust-item">
+          <span class="icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Tradição no bairro
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <h3>Botijão P13 · 13kg</h3>
+        <p class="price-from">Gás de cozinha residencial</p>
+        <div class="product-img">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="135" rx="35" ry="4" fill="rgba(0,0,0,0.08)"/>
+            <rect x="38" y="0" width="24" height="10" rx="2" fill="#1F3A5F"/>
+            <rect x="32" y="10" width="36" height="8" rx="1" fill="#1F3A5F"/>
+            <rect x="15" y="18" width="70" height="108" rx="8" fill="#E85D1C"/>
+            <rect x="15" y="18" width="70" height="20" rx="8" fill="#C84A0F"/>
+            <rect x="22" y="48" width="56" height="36" rx="2" fill="#FFF1E8"/>
+            <text x="50" y="72" text-anchor="middle" fill="#1F3A5F" font-family="Arial Black" font-size="16" font-weight="900">P13</text>
+            <text x="50" y="92" text-anchor="middle" fill="white" font-family="Arial" font-size="9" font-weight="700">MARCÃO</text>
+            <rect x="22" y="100" width="56" height="20" rx="2" fill="rgba(0,0,0,0.15)"/>
+            <rect x="15" y="124" width="70" height="6" rx="2" fill="#1F3A5F"/>
+          </svg>
+        </div>
+        <div class="price-row">
+          <span class="label">Peça agora</span>
+          <span class="price">Entrega rápida</span>
+        </div>
+        <a href="https://wa.me/5511984361786?text=Quero%20um%20bot%C3%A3o%20P13" target="_blank" class="btn btn-orange">Solicitar entrega</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAIXA INFO ============ -->
+<div class="info-bar">
+  <div class="container">
+    <div class="info-item">
+      <div class="ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="label">Telefone</div>
+        <div class="value">(11) 2682-6444</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      </div>
+      <div>
+        <div class="label">WhatsApp</div>
+        <div class="value">(11) 98436-1786</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="label">Horário</div>
+        <div class="value">7h às 22h</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <div>
+        <div class="label">Endereço</div>
+        <div class="value">Vila Ré · SP</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRODUTOS ============ -->
+<section class="block" id="produtos">
+  <div class="container">
+    <div class="section-title-wrap">
+      <div class="section-eyebrow">Nossos produtos</div>
+      <h2 class="section-title">Tudo o que você precisa em casa ou no comércio</h2>
+      <p class="section-subtitle">Botijão de gás, água mineral e entrega no mesmo dia. Peça pelo telefone ou WhatsApp.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <rect x="38" y="0" width="24" height="10" rx="2" fill="#1F3A5F"/>
+            <rect x="32" y="10" width="36" height="8" rx="1" fill="#1F3A5F"/>
+            <rect x="15" y="18" width="70" height="108" rx="8" fill="#E85D1C"/>
+            <rect x="15" y="18" width="70" height="18" rx="8" fill="#C84A0F"/>
+            <rect x="22" y="48" width="56" height="32" rx="2" fill="#FFF1E8"/>
+            <text x="50" y="70" text-anchor="middle" fill="#1F3A5F" font-family="Arial Black" font-size="16" font-weight="900">P13</text>
+            <rect x="15" y="124" width="70" height="6" rx="2" fill="#1F3A5F"/>
+          </svg>
+        </div>
+        <h3>Botijão P13</h3>
+        <p>13kg de gás para uso residencial. Perfeito para a cozinha de casa, fogão e aquecedor.</p>
+        <a href="https://wa.me/5511984361786?text=Quero%20um%20bot%C3%A3o%20P13" target="_blank" class="btn btn-orange">Pedir agora</a>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="0" width="20" height="8" rx="2" fill="#1F3A5F"/>
+            <rect x="34" y="8" width="32" height="6" rx="1" fill="#1F3A5F"/>
+            <rect x="10" y="14" width="80" height="114" rx="6" fill="#E85D1C"/>
+            <rect x="10" y="14" width="80" height="20" rx="6" fill="#C84A0F"/>
+            <rect x="18" y="46" width="64" height="32" rx="2" fill="#FFF1E8"/>
+            <text x="50" y="68" text-anchor="middle" fill="#1F3A5F" font-family="Arial Black" font-size="16" font-weight="900">P45</text>
+            <rect x="10" y="126" width="80" height="6" rx="2" fill="#1F3A5F"/>
+          </svg>
+        </div>
+        <h3>Botijão P45</h3>
+        <p>45kg de gás para uso comercial. Ideal para restaurantes, padarias e estabelecimentos.</p>
+        <a href="https://wa.me/5511984361786?text=Quero%20um%20bot%C3%A3o%20P45" target="_blank" class="btn btn-orange">Pedir agora</a>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <rect x="42" y="0" width="16" height="10" rx="2" fill="#1F3A5F"/>
+            <rect x="35" y="10" width="30" height="12" rx="3" fill="#1F3A5F"/>
+            <path d="M22 22 L78 22 L74 130 Q74 134 70 134 L30 134 Q26 134 26 130 Z" fill="#3B82C7"/>
+            <rect x="35" y="40" width="30" height="60" rx="2" fill="rgba(255,255,255,0.4)"/>
+            <ellipse cx="42" cy="55" rx="3" ry="5" fill="rgba(255,255,255,0.6)"/>
+            <text x="50" y="78" text-anchor="middle" fill="white" font-family="Arial Black" font-size="14" font-weight="900">20L</text>
+          </svg>
+        </div>
+        <h3>Água mineral</h3>
+        <p>Galões de 20 litros entregues na sua casa. Combine com o pedido de gás e receba tudo junto.</p>
+        <a href="https://wa.me/5511984361786?text=Quero%20%C3%A1gua%20mineral" target="_blank" class="btn btn-orange">Pedir agora</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COBERTURA ============ -->
+<section class="block cobertura" id="cobertura">
+  <div class="container">
+    <div class="cobertura-grid">
+      <div>
+        <div class="section-eyebrow">Área de atendimento</div>
+        <h2 class="section-title" style="text-align:left; margin:0 0 14px;">Atendemos a zona leste de São Paulo</h2>
+        <p style="font-size:18px; color:var(--gray); margin-bottom:10px;">Saímos da nossa loja na Rua Itinguçu e entregamos nos bairros vizinhos. Confira se atendemos a sua região:</p>
+
+        <div class="cobertura-list">
+          <div class="bairro"><span class="check">✓</span><span class="nome">Vila Ré</span></div>
+          <div class="bairro"><span class="check">✓</span><span class="nome">Penha</span></div>
+          <div class="bairro"><span class="check">✓</span><span class="nome">Itinguçu</span></div>
+          <div class="bairro"><span class="check">✓</span><span class="nome">Vila Matilde</span></div>
+          <div class="bairro"><span class="check">✓</span><span class="nome">Cangaíba</span></div>
+          <div class="bairro"><span class="check">✓</span><span class="nome">Vila Esperança</span></div>
+        </div>
+      </div>
+
+      <div class="cobertura-card">
+        <div class="pin">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#E85D1C"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        </div>
+        <h3>Nossa loja</h3>
+        <p class="address">Rua Itinguçu, 2512<br>Vila Ré · São Paulo · SP</p>
+        <p class="cep">CEP 03658-001</p>
+        <div class="hours">⏰ Aberto todo dia · 7h às 22h</div>
+        <a href="https://maps.google.com/?q=Rua+Itinguçu+2512+Vila+Ré+São+Paulo" target="_blank" class="btn btn-outline">Ver no mapa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO PEDIR ============ -->
+<section class="block" id="como-pedir">
+  <div class="container">
+    <div class="section-title-wrap">
+      <div class="section-eyebrow">Simples assim</div>
+      <h2 class="section-title">Pedir o seu gás é fácil</h2>
+      <p class="section-subtitle">Sem aplicativo. Sem cadastro. Sem complicação.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Ligue ou mande mensagem</h3>
+        <p>Fale com a gente pelo telefone (11) 2682-6444 ou WhatsApp (11) 98436-1786.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Diga o que precisa</h3>
+        <p>Botijão P13, P45 ou água. Informe o endereço e o melhor horário para a entrega.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Receba em casa</h3>
+        <p>Entregamos no mesmo dia, com instalação se for necessário. Pagamento na entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUE ============ -->
+<section class="block porque">
+  <div class="container">
+    <div class="section-title-wrap">
+      <div class="section-eyebrow">Por que escolher o Marcão</div>
+      <h2 class="section-title">Tradição, confiança e atendimento humano</h2>
+    </div>
+
+    <div class="porque-grid">
+      <div class="pilar">
+        <div class="pilar-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Entrega rápida</h3>
+        <p>Pediu, a gente sai pra entregar. No mesmo dia, sem aquele papo de "amanhã eu vou".</p>
+      </div>
+
+      <div class="pilar">
+        <div class="pilar-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <h3>Atendimento humano</h3>
+        <p>Quem atende é gente, não robô. Conhece a sua rua, sabe qual o seu prédio, lembra do seu nome.</p>
+      </div>
+
+      <div class="pilar">
+        <div class="pilar-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/></svg>
+        </div>
+        <h3>Segurança garantida</h3>
+        <p>Revenda autorizada de GLP. Botijões dentro do prazo, lacrados e com toda a regulamentação da ANP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final" id="contato">
+  <div class="container">
+    <h2>Acabou o gás? A gente resolve.</h2>
+    <p>Ligue agora ou chame no WhatsApp. Atendemos a Vila Ré e bairros vizinhos das 7h às 22h, todos os dias.</p>
+    <div class="cta-final-buttons">
+      <a href="https://wa.me/5511984361786" target="_blank" rel="noopener" class="btn btn-whats btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        WhatsApp (11) 98436-1786
+      </a>
+      <a href="tel:+551126826444" class="btn btn-call btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.2a1 1 0 00.24-1.02A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>
+        Ligar (11) 2682-6444
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+              <path d="M12 2s-2 4-2 7c0 2 1 3 2 3s2-1 2-3c0-3-2-7-2-7zm0 10c-4 0-7 3-7 7 0 3 3 5 7 5s7-2 7-5c0-4-3-7-7-7z" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="main">Marcão do Gás</span>
+            <span class="sub">Disque-gás · Vila Ré</span>
+          </div>
+        </div>
+        <p class="footer-about">Botijão de gás e água mineral entregues na sua porta. Atendemos a zona leste de São Paulo com agilidade e atendimento humano.</p>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <a href="tel:+551126826444">📞 (11) 2682-6444</a>
+        <a href="https://wa.me/5511984361786" target="_blank">💬 (11) 98436-1786</a>
+        <p style="margin-top:14px; color:rgba(255,255,255,0.6);">Aberto todo dia<br>das 7h às 22h</p>
+      </div>
+
+      <div>
+        <h4>Endereço</h4>
+        <p>Rua Itinguçu, 2512<br>Vila Ré · São Paulo · SP<br>CEP 03658-001</p>
+        <a href="https://maps.google.com/?q=Rua+Itinguçu+2512+Vila+Ré+São+Paulo" target="_blank" style="margin-top:10px; color:var(--orange);">Ver no mapa →</a>
+      </div>
+
+      <div>
+        <h4>Produtos</h4>
+        <a href="#produtos">Botijão P13</a>
+        <a href="#produtos">Botijão P45</a>
+        <a href="#produtos">Água mineral</a>
+        <a href="#como-pedir">Como pedir</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© Marcão do Gás · Vila Ré · São Paulo</div>
+      <div>Revenda autorizada de GLP</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5511984361786" target="_blank" rel="noopener" class="whats-float" aria-label="Pedir pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+
+</body>
+</html>
